@@ -37,8 +37,8 @@ app.use(
 // ----------------- MYSQL CONNECTION -----------------
 const db = await mysql.createConnection({
   host: "localhost",
-  user: "Vrushali",
-  password: "root@1220",
+  user: "root",
+  password: "root@120",
   database: "vehiclerental",
 });
 console.log("Connected to MySQL!");
@@ -384,3 +384,4 @@ app.get(/^\/(?!api).*/, (req, res) => { res.sendFile(path.join(__dirname, "dist"
 // ----------------- START SERVER -----------------
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
