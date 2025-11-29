@@ -1,0 +1,755 @@
+/* ===========================
+   Booking Page – Elegant Redesign
+   =========================== */
+
+/* Base Layout */
+.booking-container-withFeedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #f7faff, #eef3f9);
+  padding: 40px 0;
+  font-family: "Poppins", sans-serif;
+  color: #222;
+}
+
+/* ===== MAIN BOOKING CONTAINER ===== */
+.booking-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 1300px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 50px;
+  transition: all 0.3s ease;
+}
+
+/* ===========================
+   LEFT COLUMN (Vehicle Info)
+   =========================== */
+.left-column {
+  flex: 1 1 35%;
+  background: linear-gradient(160deg, #0056b3, #002b5b);
+  color: #fff;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.left-column::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.15), transparent 70%);
+}
+
+.vehicle-card-info h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.vehicle-Image {
+  width: 100%;
+  border-radius: 14px;
+  margin: 20px 0;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.vehicle-Image:hover {
+  transform: scale(1.03);
+}
+
+.vehicle-meta {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.vehicle-meta strong {
+  color: #ffde59;
+  font-weight: 600;
+}
+
+/* ===========================
+   RIGHT COLUMN (Booking Form)
+   =========================== */
+.right-column {
+  flex: 1 1 65%;
+  padding: 40px;
+}
+
+/* Map */
+.map-section {
+  margin-bottom: 25px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.map-section:hover {
+  transform: scale(1.01);
+}
+
+.map-pick-label {
+  text-align: center;
+  font-weight: 600;
+  color: #0056b3;
+  margin-top: 12px;
+}
+
+/* Input Fields */
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #1e3d59;
+  font-size: 0.95rem;
+}
+
+input,
+select,
+textarea {
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f9fbff;
+  color: #002b5b;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='%230056b3' viewBox='0 0 24 24'><path d='M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V9h14v11z'/></svg>") no-repeat center;
+  filter: none;
+  opacity: 1;
+}
+
+/* Time Picker */
+.time-picker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.time-picker input {
+  width: 70px;
+}
+
+/* Address Section */
+.address-section {
+  margin-bottom: 25px;
+}
+
+.input-with-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-with-btn button {
+  background: linear-gradient(90deg, #007bff, #00b4d8);
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.input-with-btn button:hover {
+  background: linear-gradient(90deg, #0056b3, #0096c7);
+  transform: translateY(-2px);
+}
+
+/* Price Section */
+.calculate-btn {
+  background: linear-gradient(90deg, #1e3d59, #0056b3);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.calculate-btn:hover {
+  background: linear-gradient(90deg, #003f88, #007bff);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 86, 179, 0.25);
+}
+
+.price-details {
+  background: rgba(240, 245, 255, 0.9);
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 15px;
+  line-height: 1.6;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.price-details h3 {
+  color: #1e3d59;
+  margin-bottom: 8px;
+}
+
+/* Consent & Buttons */
+.consent-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.driver-form-btn {
+  background: linear-gradient(90deg, #ff914d, #ffb347);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.driver-form-btn:hover {
+  background: linear-gradient(90deg, #e57300, #ff914d);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 145, 77, 0.3);
+}
+
+/* ===========================
+   MODAL (Driver Form)
+   =========================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 61, 89, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 14px;
+  width: 420px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+  color: #1e3d59;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.confirm-btn {
+  background: linear-gradient(90deg, #0056b3, #00b4d8);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background: linear-gradient(90deg, #003f88, #007bff);
+  transform: translateY(-2px);
+}
+
+/* Modal Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   FEEDBACK SECTION
+   =========================== */
+.feedback-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 1300px;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
+  margin-bottom: 70px;
+}
+
+.feedback-section h3 {
+  color: #1e3d59;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.feedback-item {
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+
+.feedback-user {
+  font-weight: 600;
+  color: #0056b3;
+}
+
+.feedback-comment {
+  font-style: italic;
+  color: #333;
+}
+
+.feedback-date {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Star Ratings */
+.star {
+  font-size: 1.4rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.star.filled {
+  color: #FFD700;
+}
+
+.star.half {
+  color: #FFEA70;
+}
+
+/* Add Feedback Box */
+.add-feedback {
+  margin-top: 25px;
+  border-top: 2px solid #eee;
+  padding-top: 20px;
+}
+
+.add-feedback textarea {
+  width: 100%;
+  height: 90px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  padding: 12px;
+  resize: vertical;
+  background: #f9fbff;
+  transition: 0.3s;
+}
+
+.add-feedback textarea:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 86, 179, 0.15);
+}
+
+.add-feedback button {
+  background: linear-gradient(90deg, #1e3d59, #0056b3);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  margin-top: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.add-feedback button:hover {
+  background: linear-gradient(90deg, #003f88, #007bff);
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 900px) {
+  .booking-container {
+    flex-direction: column;
+  }
+
+  .left-column, .right-column {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
+/* ===== MAIN BOOKING CONTAINER ===== */
+.booking-container {
+  display: flex;
+  flex-direction: row;           /* Force side-by-side layout */
+  align-items: stretch;          /* Make both columns equal height */
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1300px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 50px;
+  transition: all 0.3s ease;
+}
+
+/* LEFT COLUMN */
+.left-column {
+  flex: 0 0 40%;                 /* Fixed width portion */
+  background: linear-gradient(160deg, #0056b3, #002b5b);
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* RIGHT COLUMN */
+.right-column {
+  flex: 1;                       /* Take remaining width */
+  background: #f9fbff;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+/* ===========================
+   DRIVER MODAL REDESIGN
+   =========================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 61, 89, 0.75); /* slightly darker overlay */
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 35px 40px;
+  border-radius: 16px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: slideDown 0.35s ease forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modal-content h3 {
+  font-size: 1.6rem;
+  color: #1e3d59;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #555;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Input Fields inside Modal */
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.2);
+  background: #fff;
+}
+
+/* Submit / Confirm Button */
+.confirm-btn {
+  background: linear-gradient(90deg, #1e3d59, #0056b3);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.confirm-btn:hover {
+  background: linear-gradient(90deg, #003f88, #007bff);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 86, 179, 0.3);
+}
+
+/* Optional small info text */
+.modal-content small {
+  font-size: 0.82rem;
+  color: #555;
+  text-align: center;
+  margin-top: -5px;
+}
+
+/* Smooth Slide Down Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Modal */
+@media (max-width: 500px) {
+  .modal-content {
+    padding: 25px 20px;
+  }
+  .confirm-btn {
+    padding: 10px 20px;
+  }
+}
+/* ===========================
+   PAYMENT MODAL REDESIGN
+   =========================== */
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 61, 89, 0.75); /* dark transparent overlay */
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.payment-modal-content {
+  background: #fff;
+  padding: 35px 40px;
+  border-radius: 16px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: slideDownPayment 0.35s ease forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.payment-modal-content h3 {
+  font-size: 1.6rem;
+  color: #1e3d59;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.payment-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #555;
+  transition: 0.3s;
+}
+
+.payment-close-btn:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Input Fields for Payment */
+.payment-modal-content input,
+.payment-modal-content select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #f9fbff;
+}
+
+.payment-modal-content input:focus,
+.payment-modal-content select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.2);
+  background: #fff;
+}
+
+/* Payment Button */
+.pay-btn {
+  background: linear-gradient(90deg, #ff914d, #ffb347);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.pay-btn:hover {
+  background: linear-gradient(90deg, #e57300, #ff914d);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 145, 77, 0.3);
+}
+
+/* Optional small info text */
+.payment-modal-content small {
+  font-size: 0.82rem;
+  color: #555;
+  text-align: center;
+  margin-top: -5px;
+}
+
+/* Smooth Slide Down Animation */
+@keyframes slideDownPayment {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Payment Modal */
+@media (max-width: 500px) {
+  .payment-modal-content {
+    padding: 25px 20px;
+  }
+  .pay-btn {
+    padding: 10px 20px;
+  }
+}
+.star {
+  font-size: 24px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  color: #ccc; /* base color for empty star */
+}
+
+.star.filled {
+  color: gold; /* full star */
+}
+
+.star.half {
+  background: linear-gradient(
+    90deg,
+    gold 50%,
+    #ccc 50%
+  ); /* left half gold, right half gray */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: gold;
+}

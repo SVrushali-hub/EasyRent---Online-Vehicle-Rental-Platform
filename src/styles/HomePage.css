@@ -1,0 +1,203 @@
+Reset
+/* * { margin: 0; padding: 0; box-sizing: border-box; } */
+html, body, #root { width: 100%; height: 100%; font-family: 'Arial', sans-serif; background: none; }
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1e3d59, #0056b3);
+  color: #fff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.hero-title {
+  font-size: 48px;
+  margin-bottom: 10px;
+  animation: slideDown 1s ease-out;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.explore-btn {
+  padding: 12px 28px;
+  background: #ff7a00;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.explore-btn:hover {
+  background: #e06600;
+  transform: scale(1.05);
+}
+
+/* Vehicles Carousel */
+.vehicles {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #1e3d59;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.vehicle-grid {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.vehicle-card {
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  width: 220px;
+  text-align: center;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vehicle-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.vehicle-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Night Discount */
+.night-discount {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e3d59, #0056b3);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.discount-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.moon-icon {
+  font-size: 50px;
+  animation: bounce 1.5s infinite;
+}
+
+.discount-text h3 {
+  margin: 0 0 5px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.discount-text p span {
+  color: #ffdd00;
+  font-weight: 600;
+}
+
+/* Branches Section */
+.branches {
+  text-align: center;
+  color: #0056b3;
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.branch-item {
+  padding: 6px 0;
+  font-size: 16px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Arrows */
+.arrow {
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1e3d59;
+  transition: transform 0.2s;
+}
+
+.arrow:hover {
+  transform: scale(1.2);
+}
+/* About Section */
+.about {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.about h2 {
+  font-size: 32px;
+  color: #1e3d59;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  opacity: 0.9;
+  transition: all 0.3s;
+}
+
+.about p:hover {
+  transform: translateY(-3px);
+  opacity: 1;
+}

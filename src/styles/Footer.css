@@ -1,0 +1,60 @@
+.footer {
+  background: #0b2a42; /* same as header background */
+  color: white;
+  padding: 30px 50px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2); /* subtle top shadow like header */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-contact h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #ff7a00; /* matches brand color in header */
+}
+
+.footer-contact p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.footer-contact a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-contact a:hover {
+  color: #ff7a00;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 30px;
+  }
+
+  .footer-contact h4 {
+    font-size: 16px;
+  }
+
+  .footer-contact p {
+    font-size: 13px;
+  }
+}

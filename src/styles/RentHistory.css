@@ -1,0 +1,201 @@
+/* RentHistory.css */
+
+/* Page background and layout */
+.rent-history {
+  background: #f0f4f8;
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Header */
+.history-header {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.history-header h3 {
+  font-size: 26px;
+  color: #0056b3;
+  font-weight: 600;
+  border-bottom: 2px solid #e5eaf1;
+  padding-bottom: 6px;
+  display: inline-block;
+}
+.cancelled-text {
+  color: red;
+  font-weight: bold;
+}
+.past-booking {
+  background-color: #f0f0f0; /* light gray */
+  color: #888;
+}
+
+.cancelled-text {
+  color: red;
+  font-weight: bold;
+}
+
+/* Table container */
+table {
+  width: 100%;
+  max-width: 1100px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+/* Table headers */
+thead {
+  background: linear-gradient(135deg, #1e3d59, #0056b3);
+  color: #fff;
+}
+
+th {
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+/* Table body */
+tbody tr {
+  border-bottom: 1px solid #e6e6e6;
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: #f7fbff;
+}
+
+td {
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.download-btn {
+  background: #0056b3;
+  color: white;
+}
+
+.download-btn:hover {
+  background: #00408a;
+}
+
+.cancel-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #b21f2d;
+}
+
+/* Loading / Empty message */
+.rent-history p {
+  font-size: 16px;
+  color: #555;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 1000px) {
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .rent-history {
+    padding: 30px 10px;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 10px 12px;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #0056b3;
+  }
+
+  .download-btn,
+  .cancel-btn {
+    width: 100%;
+    margin-top: 6px;
+  }
+}
+
+/* Disabled (past or cancelled) booking rows */
+.disabled-row {
+  opacity: 0.6;
+  background-color: #f8f8f8;
+  transition: 0.3s ease;
+}
+
+/* Make text appear softer */
+.disabled-row td {
+  color: #777;
+  font-style: italic;
+}
+
+/* Cancelled label */
+.cancelled-text {
+  color: red;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Disabled Cancel button look */
+.btn.cancel-btn:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}

@@ -1,1 +1,299 @@
+/* =========================
+   Floating Chat Button
+   ========================= */
+.chat-toggle-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s, background 0.3s;
+  z-index: 999;
+}
 
+.chat-toggle-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #fc5c7d, #6a82fb);
+}
+
+/* =========================
+   Chat Popup Window (Glassmorphism)
+   ========================= */
+.chatbot-popup {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 380px;
+  max-width: 95%;
+  height: 520px;
+  max-height: 85%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999;
+  resize: both;
+  min-width: 300px;
+  min-height: 400px;
+}
+
+/* =========================
+   Chat Header
+   ========================= */
+.chat-header {
+  background: linear-gradient(90deg, #6a82fb, #fc5c7d);
+  color: white;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  cursor: grab;
+  user-select: none;
+}
+
+.chat-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.chat-header button {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.chat-header button:hover {
+  transform: scale(1.2);
+}
+
+/* =========================
+   Chat Body
+   ========================= */
+.chat-body {
+  flex: 1;
+  padding: 14px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =========================
+   Message Bubbles
+   ========================= */
+.message {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-message {
+  align-items: flex-end;
+}
+
+.bot-message {
+  align-items: flex-start;
+}
+
+.message-text {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+}
+
+.user-message .message-text {
+  background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+  color: white;
+  border-bottom-right-radius: 6px;
+}
+
+.bot-message .message-text {
+  background: rgba(255, 255, 255, 0.25);
+  color: #000;
+  border-bottom-left-radius: 6px;
+  backdrop-filter: blur(5px);
+}
+
+/* Typing animation */
+.message-text.typing::after {
+  content: '...';
+  display: inline-block;
+  animation: typing 1s steps(3) infinite;
+}
+
+@keyframes typing {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+/* =========================
+   Footer / Input Area
+   ========================= */
+.chat-footer {
+  display: flex;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  gap: 8px;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 14px;
+  outline: none;
+  color: #000;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.3s;
+}
+
+.chat-footer input::placeholder {
+  color: rgba(0,0,0,0.5);
+}
+
+.chat-footer input:focus {
+  border-color: #6a82fb;
+  box-shadow: 0 0 8px rgba(106,130,251,0.5);
+  background: rgba(255,255,255,0.3);
+}
+
+.chat-footer button {
+  padding: 0 16px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.chat-footer button:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   Prompt Buttons
+   ========================= */
+.prompts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.prompt-btn {
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.prompt-btn:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   Vehicle Cards (Glass + Gradient)
+   ========================= */
+.chatbot-vehicles-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.chatbot-vehicle-card {
+  width: 160px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.15);
+  color: #000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chatbot-vehicle-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.chatbot-vehicle-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.chatbot-vehicle-card h4 {
+  font-size: 14px;
+  margin: 8px 0 4px;
+  font-weight: 600;
+}
+
+.chatbot-vehicle-card p {
+  font-size: 12px;
+  color: #333;
+}
+
+/* =========================
+   Scrollbar Styling
+   ========================= */
+.chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+  background: rgba(106,130,251,0.5);
+  border-radius: 3px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 480px) {
+  .chatbot-popup {
+    width: 90%;
+    height: 60%;
+  }
+
+  .chatbot-vehicle-card {
+    width: 45%;
+  }
+}
